@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Drawing;
+using ConwayGameofLife.com.andaforce.arazect.data;
 using ConwayGameofLife.com.andaforce.arazect.life;
 using ConwayGameofLife.com.andaforce.arazect.visual.winforms.shapes;
 
@@ -66,7 +67,14 @@ namespace ConwayGameofLife.com.andaforce.arazect.visual.winforms
             }
         }
 
+        public GenericPoint<int> ScreenToWorldPoint(int screenX, int screenY)
+        {
+            return 
+                new GenericPoint<int> {X = screenX / PixelSize, Y = screenY / PixelSize};
+        }
+
         #region Setters
+
         public void SetColor(Color color)
         {
             Color = color;
@@ -81,6 +89,7 @@ namespace ConwayGameofLife.com.andaforce.arazect.visual.winforms
         {
             ShapeType = shapeType;
         }
+
         #endregion
     }
 }

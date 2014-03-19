@@ -64,14 +64,13 @@ namespace ConwayGameofLife
 
         private void pBox_MouseClick(object sender, MouseEventArgs e)
         {
-
         }
 
         private void pBox_MouseMove(object sender, MouseEventArgs e)
         {
-            tsslMouseCoordinates.Text = String.Format(
-                "Mouse coordinates = {0}:{1}",
-                e.X / _presentation.PixelSize, e.Y / _presentation.PixelSize);
+            var point = _presentation.ScreenToWorldPoint(e.X, e.Y);
+            tsslMouseCoordinates.Text =
+                String.Format("Mouse coordinates = {0}:{1}", point.X, point.Y);
         }
     }
 }
