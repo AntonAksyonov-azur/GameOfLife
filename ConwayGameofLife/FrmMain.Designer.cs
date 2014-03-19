@@ -46,6 +46,8 @@
             this.btnGenerateClean = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.tsslMouseCoordinates = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lGeneration = new System.Windows.Forms.Label();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.pBox)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudPixelSize)).BeginInit();
@@ -55,6 +57,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudWorldHeight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudWorldWidth)).BeginInit();
             this.statusStrip1.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // pBox
@@ -156,11 +159,11 @@
             // 
             // btnNextStep
             // 
-            this.btnNextStep.Location = new System.Drawing.Point(6, 274);
+            this.btnNextStep.Location = new System.Drawing.Point(6, 19);
             this.btnNextStep.Name = "btnNextStep";
             this.btnNextStep.Size = new System.Drawing.Size(103, 23);
             this.btnNextStep.TabIndex = 6;
-            this.btnNextStep.Text = "Next Step";
+            this.btnNextStep.Text = "Next Generation";
             this.btnNextStep.UseVisualStyleBackColor = true;
             this.btnNextStep.Click += new System.EventHandler(this.btnNextStep_Click);
             // 
@@ -277,14 +280,34 @@
             this.tsslMouseCoordinates.Size = new System.Drawing.Size(138, 17);
             this.tsslMouseCoordinates.Text = "Mouse coordinates  = (0:0)";
             // 
+            // lGeneration
+            // 
+            this.lGeneration.AutoSize = true;
+            this.lGeneration.Location = new System.Drawing.Point(6, 45);
+            this.lGeneration.Name = "lGeneration";
+            this.lGeneration.Size = new System.Drawing.Size(112, 13);
+            this.lGeneration.TabIndex = 10;
+            this.lGeneration.Text = "Current generation = 0";
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.btnNextStep);
+            this.groupBox5.Controls.Add(this.lGeneration);
+            this.groupBox5.Location = new System.Drawing.Point(6, 274);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(174, 70);
+            this.groupBox5.TabIndex = 11;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Generation control";
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(838, 511);
+            this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.groupBox4);
-            this.Controls.Add(this.btnNextStep);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -304,6 +327,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudWorldWidth)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -329,6 +354,8 @@
         private System.Windows.Forms.NumericUpDown nudWorldWidth;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel tsslMouseCoordinates;
+        private System.Windows.Forms.Label lGeneration;
+        private System.Windows.Forms.GroupBox groupBox5;
     }
 }
 

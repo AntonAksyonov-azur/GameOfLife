@@ -8,6 +8,7 @@ namespace ConwayGameofLife.com.andaforce.arazect.life
         private int[,] _futureWorldState;
         public int WorldWidth { get; private set; }
         public int WorldHeight { get; private set; }
+        public int Generation { get; private set; }
 
         public World(int worldWidth, int worldHeight)
         {
@@ -61,8 +62,6 @@ namespace ConwayGameofLife.com.andaforce.arazect.life
 
         private void ApplyFuture()
         {
-            Clear();
-
             for (int x = 0; x < WorldWidth; x++)
             {
                 for (int y = 0; y < WorldHeight; y++)
@@ -74,8 +73,10 @@ namespace ConwayGameofLife.com.andaforce.arazect.life
 
         #endregion
 
-        public void PerformNextStep()
+        public void ProceedToNextGeneration()
         {
+            Generation += 1;
+
             ClearFuture();
 
             bool isCellDead;
@@ -118,6 +119,8 @@ namespace ConwayGameofLife.com.andaforce.arazect.life
 
         public void Clear(int newWidth = 0, int newHeight = 0)
         {
+            Generation = 0;
+
             if (newWidth > 0)
             {
                 WorldWidth = newWidth;
@@ -158,7 +161,6 @@ namespace ConwayGameofLife.com.andaforce.arazect.life
             return neighboursCount;
         }
 
-
         private readonly Point[] _directions =
         {
             new Point {X = 1, Y = 0},
@@ -176,5 +178,6 @@ namespace ConwayGameofLife.com.andaforce.arazect.life
             public int X;
             public int Y;
         }
+
     }
 }

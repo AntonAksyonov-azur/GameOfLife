@@ -18,7 +18,7 @@ namespace ConwayGameofLife
         private World _gameWorld;
         private GraphicalPresentation _presentation;
         private Color _gridColor;
-        
+
         private GenericPoint<int> _currentPoint;
         private SolidBrush _highlightBrush;
 
@@ -61,7 +61,9 @@ namespace ConwayGameofLife
 
         private void btnNextStep_Click(object sender, EventArgs e)
         {
-            _gameWorld.PerformNextStep();
+            _gameWorld.ProceedToNextGeneration();
+            lGeneration.Text = String.Format("Curent generation = {0}", _gameWorld.Generation);
+
             pBox.Refresh();
         }
 
