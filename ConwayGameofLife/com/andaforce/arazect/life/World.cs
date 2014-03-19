@@ -56,15 +56,30 @@ namespace ConwayGameofLife.com.andaforce.arazect.life
             }
         }
 
-        public void RandomFilling(int count)
+        public void RandomFilling(int count, int newWidth = 0, int newHeight = 0)
         {
-            _worldState = new int[WorldHeight, WorldWidth];
+            Clear(newWidth, newHeight);
 
             var rnd = new Random();
             for (int i = 0; i < count; i++)
             {
                 SetCellAlive(rnd.Next(0, WorldWidth), rnd.Next(0, WorldHeight));
             }
+        }
+
+        public void Clear(int newWidth = 0, int newHeight = 0)
+        {
+            if (newWidth > 0)
+            {
+                WorldWidth = newWidth;
+            }
+
+            if (newHeight > 0)
+            {
+                WorldHeight = newHeight;
+            }
+
+            _worldState = new int[WorldHeight, WorldWidth];
         }
 
         private int GetNeighboursCount(int checkedX, int checkedY)
