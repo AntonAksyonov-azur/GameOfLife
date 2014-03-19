@@ -66,6 +66,7 @@ namespace ConwayGameofLife.com.andaforce.arazect.visual.winforms
             }
         }
 
+        #region Setters
         public void SetColor(Color color)
         {
             Color = color;
@@ -80,5 +81,6 @@ namespace ConwayGameofLife.com.andaforce.arazect.visual.winforms
         {
             ShapeType = shapeType;
         }
+        #endregion
     }
 }
