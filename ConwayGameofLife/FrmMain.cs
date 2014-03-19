@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using ConwayGameofLife.com.andaforce.arazect.life;
 using ConwayGameofLife.com.andaforce.arazect.visual;
@@ -24,13 +19,20 @@ namespace ConwayGameofLife
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            _gameWorld = new World(640, 480);
-            _presentation = new GraphicalPresentation(ShapeType.Rectangle, Color.Red, 1);
+            _gameWorld = new World((int) nudWorldWidth.Value, (int) nudWorldHeight.Value);
+            _presentation =
+                new GraphicalPresentation(
+                    ShapeType.Rectangle,
+                    Color.Red,
+                    (int) nudPixelSize.Value);
         }
 
         private void btnGenerateNew_Click(object sender, EventArgs e)
         {
-            _gameWorld.RandomFilling(100);
+            _gameWorld.RandomFilling(
+                _gameWorld.WorldWidth * _gameWorld.WorldHeight / 2,
+                (int) nudWorldWidth.Value,
+                (int) nudWorldHeight.Value);
             pBox.Refresh();
         }
 
@@ -43,6 +45,17 @@ namespace ConwayGameofLife
         {
             _gameWorld.PerformNextStep();
             pBox.Refresh();
+        }
+
+        private void btnGenerateClean_Click(object sender, EventArgs e)
+        {
+            _gameWorld.Clear((int) nudWorldWidth.Value, (int) nudWorldHeight.Value);
+            pBox.Refresh();
+        }
+
+        private void nudPixelSize_ValueChanged(object sender, EventArgs e)
+        {
+            _presentation.SetPixelSize((int) nudPixelSize.Value);
         }
     }
 }
