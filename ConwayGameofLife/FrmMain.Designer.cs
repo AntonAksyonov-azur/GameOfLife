@@ -114,7 +114,7 @@
             this.nudPixelSize.Size = new System.Drawing.Size(88, 20);
             this.nudPixelSize.TabIndex = 2;
             this.nudPixelSize.Value = new decimal(new int[] {
-            8,
+            16,
             0,
             0,
             0});
@@ -210,7 +210,7 @@
             this.nudWorldHeight.Size = new System.Drawing.Size(67, 20);
             this.nudWorldHeight.TabIndex = 11;
             this.nudWorldHeight.Value = new decimal(new int[] {
-            60,
+            30,
             0,
             0,
             0});
@@ -241,7 +241,7 @@
             this.nudWorldWidth.Size = new System.Drawing.Size(67, 20);
             this.nudWorldWidth.TabIndex = 9;
             this.nudWorldWidth.Value = new decimal(new int[] {
-            80,
+            40,
             0,
             0,
             0});

@@ -16,6 +16,7 @@ namespace ConwayGameofLife
 
         private World _gameWorld;
         private GraphicalPresentation _presentation;
+        private Color _gridColor;
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -25,6 +26,8 @@ namespace ConwayGameofLife
                     ShapeType.Rectangle,
                     Color.Red,
                     (int) nudPixelSize.Value);
+
+            _gridColor = Color.FromArgb(128, Color.White);
         }
 
         private void btnGenerateNew_Click(object sender, EventArgs e)
@@ -39,6 +42,7 @@ namespace ConwayGameofLife
         private void pBox_Paint(object sender, PaintEventArgs e)
         {
             _presentation.DrawWorld(e.Graphics, _gameWorld);
+            _presentation.DrawGrid(e.Graphics, _gridColor, _gameWorld);
         }
 
         private void btnNextStep_Click(object sender, EventArgs e)
