@@ -36,6 +36,8 @@
             this.btnNextGeneration = new System.Windows.Forms.Button();
             this.btnGenerateRandom = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.btnDimDown = new System.Windows.Forms.Button();
+            this.btnDimUp = new System.Windows.Forms.Button();
             this.cbDrawGrid = new System.Windows.Forms.CheckBox();
             this.label5 = new System.Windows.Forms.Label();
             this.nudRandomCount = new System.Windows.Forms.NumericUpDown();
@@ -120,7 +122,7 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.pBox);
-            this.groupBox3.Location = new System.Drawing.Point(171, 3);
+            this.groupBox3.Location = new System.Drawing.Point(171, 5);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(651, 496);
             this.groupBox3.TabIndex = 5;
@@ -148,6 +150,8 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.btnDimDown);
+            this.groupBox4.Controls.Add(this.btnDimUp);
             this.groupBox4.Controls.Add(this.cbDrawGrid);
             this.groupBox4.Controls.Add(this.label5);
             this.groupBox4.Controls.Add(this.nudRandomCount);
@@ -161,10 +165,30 @@
             this.groupBox4.Controls.Add(this.btnGenerateRandom);
             this.groupBox4.Location = new System.Drawing.Point(6, 3);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(159, 192);
+            this.groupBox4.Size = new System.Drawing.Size(165, 192);
             this.groupBox4.TabIndex = 8;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Generation";
+            // 
+            // btnDimDown
+            // 
+            this.btnDimDown.Location = new System.Drawing.Point(130, 68);
+            this.btnDimDown.Name = "btnDimDown";
+            this.btnDimDown.Size = new System.Drawing.Size(29, 23);
+            this.btnDimDown.TabIndex = 18;
+            this.btnDimDown.Text = "D";
+            this.btnDimDown.UseVisualStyleBackColor = true;
+            this.btnDimDown.Click += new System.EventHandler(this.btnDimDown_Click);
+            // 
+            // btnDimUp
+            // 
+            this.btnDimUp.Location = new System.Drawing.Point(97, 68);
+            this.btnDimUp.Name = "btnDimUp";
+            this.btnDimUp.Size = new System.Drawing.Size(29, 23);
+            this.btnDimUp.TabIndex = 17;
+            this.btnDimUp.Text = "U";
+            this.btnDimUp.UseVisualStyleBackColor = true;
+            this.btnDimUp.Click += new System.EventHandler(this.btnDimUp_Click);
             // 
             // cbDrawGrid
             // 
@@ -329,7 +353,7 @@
             this.groupBox5.Controls.Add(this.lGeneration);
             this.groupBox5.Location = new System.Drawing.Point(6, 201);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(159, 108);
+            this.groupBox5.Size = new System.Drawing.Size(165, 108);
             this.groupBox5.TabIndex = 11;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Generation control";
@@ -395,9 +419,9 @@
             this.groupBox1.Controls.Add(this.btnSelectBackgroundColor);
             this.groupBox1.Controls.Add(this.btnSelectGridColor);
             this.groupBox1.Controls.Add(this.btnSelectElementColor);
-            this.groupBox1.Location = new System.Drawing.Point(12, 331);
+            this.groupBox1.Location = new System.Drawing.Point(0, 315);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(159, 107);
+            this.groupBox1.Size = new System.Drawing.Size(171, 107);
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Colors";
@@ -487,6 +511,8 @@
         private System.Windows.Forms.Button btnSelectBackgroundColor;
         private System.Windows.Forms.Button btnSelectGridColor;
         private System.Windows.Forms.CheckBox cbDrawGrid;
+        private System.Windows.Forms.Button btnDimDown;
+        private System.Windows.Forms.Button btnDimUp;
     }
 }
 

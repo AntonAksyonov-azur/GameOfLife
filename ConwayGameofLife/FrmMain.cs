@@ -210,5 +210,25 @@ namespace ConwayGameofLife
         {
             btnNextGeneration.PerformClick();
         }
+
+        private void btnDimUp_Click(object sender, EventArgs e)
+        {
+            if (nudPixelSize.Value != 1)
+            {
+                nudPixelSize.Value = nudPixelSize.Value / 2;
+                nudWorldWidth.Value = nudWorldWidth.Value * 2;
+                nudWorldHeight.Value = nudWorldHeight.Value * 2;
+            }
+        }
+
+        private void btnDimDown_Click(object sender, EventArgs e)
+        {
+            if (nudPixelSize.Value != 128)
+            {
+                nudPixelSize.Value = nudPixelSize.Value * 2;
+                nudWorldWidth.Value = nudWorldWidth.Value / 2;
+                nudWorldHeight.Value = nudWorldHeight.Value / 2;
+            }
+        }
     }
 }
