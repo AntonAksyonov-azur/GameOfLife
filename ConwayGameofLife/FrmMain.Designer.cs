@@ -68,7 +68,7 @@
             // 
             this.groupBox1.Controls.Add(this.rbClear);
             this.groupBox1.Controls.Add(this.rbDraw);
-            this.groupBox1.Location = new System.Drawing.Point(6, 12);
+            this.groupBox1.Location = new System.Drawing.Point(6, 3);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(174, 66);
             this.groupBox1.TabIndex = 1;
@@ -133,7 +133,7 @@
             // 
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.nudPixelSize);
-            this.groupBox2.Location = new System.Drawing.Point(6, 210);
+            this.groupBox2.Location = new System.Drawing.Point(6, 201);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(174, 67);
             this.groupBox2.TabIndex = 4;
@@ -143,15 +143,15 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.pBox);
-            this.groupBox3.Location = new System.Drawing.Point(186, 12);
+            this.groupBox3.Location = new System.Drawing.Point(186, 3);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(651, 504);
+            this.groupBox3.Size = new System.Drawing.Size(651, 496);
             this.groupBox3.TabIndex = 5;
             this.groupBox3.TabStop = false;
             // 
             // btnNextStep
             // 
-            this.btnNextStep.Location = new System.Drawing.Point(6, 283);
+            this.btnNextStep.Location = new System.Drawing.Point(6, 274);
             this.btnNextStep.Name = "btnNextStep";
             this.btnNextStep.Size = new System.Drawing.Size(103, 23);
             this.btnNextStep.TabIndex = 6;
@@ -177,7 +177,7 @@
             this.groupBox4.Controls.Add(this.nudWorldWidth);
             this.groupBox4.Controls.Add(this.btnGenerateClean);
             this.groupBox4.Controls.Add(this.btnGenerateRandom);
-            this.groupBox4.Location = new System.Drawing.Point(6, 84);
+            this.groupBox4.Location = new System.Drawing.Point(6, 75);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(174, 120);
             this.groupBox4.TabIndex = 8;
@@ -260,7 +260,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(849, 520);
+            this.ClientSize = new System.Drawing.Size(838, 511);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.btnNextStep);
             this.Controls.Add(this.groupBox3);
