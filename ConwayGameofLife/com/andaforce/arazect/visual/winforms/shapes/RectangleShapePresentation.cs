@@ -13,7 +13,7 @@ namespace ConwayGameofLife.com.andaforce.arazect.visual.winforms.shapes
 
         public void Draw(Graphics g, int x, int y, int width)
         {
-            g.FillRectangle(_brush, x, y, x + width, y + width);
+            g.FillRectangle(_brush, x, y, width, width);
         }
     }
 }
