@@ -47,7 +47,7 @@ namespace ConwayGameofLife
         private void btnGenerateNew_Click(object sender, EventArgs e)
         {
             _gameWorld.RandomFilling(
-                _gameWorld.WorldWidth * _gameWorld.WorldHeight / 2,
+                (int) nudRandomCount.Value,
                 (int) nudWorldWidth.Value,
                 (int) nudWorldHeight.Value);
 
@@ -137,5 +137,6 @@ namespace ConwayGameofLife
         {
             btnNextGeneration.PerformClick();
         }
+
     }
 }

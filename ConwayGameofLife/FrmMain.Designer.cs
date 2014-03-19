@@ -36,6 +36,8 @@
             this.btnNextGeneration = new System.Windows.Forms.Button();
             this.btnGenerateRandom = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.nudRandomCount = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
             this.nudWorldHeight = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
@@ -55,6 +57,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudPixelSize)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudRandomCount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudWorldHeight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudWorldWidth)).BeginInit();
             this.statusStrip1.SuspendLayout();
@@ -109,7 +112,7 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.pBox);
-            this.groupBox3.Location = new System.Drawing.Point(186, 3);
+            this.groupBox3.Location = new System.Drawing.Point(171, 3);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(651, 496);
             this.groupBox3.TabIndex = 5;
@@ -119,7 +122,7 @@
             // 
             this.btnNextGeneration.Location = new System.Drawing.Point(6, 58);
             this.btnNextGeneration.Name = "btnNextGeneration";
-            this.btnNextGeneration.Size = new System.Drawing.Size(162, 23);
+            this.btnNextGeneration.Size = new System.Drawing.Size(143, 23);
             this.btnNextGeneration.TabIndex = 6;
             this.btnNextGeneration.Text = "Force Next Generation";
             this.btnNextGeneration.UseVisualStyleBackColor = true;
@@ -127,16 +130,18 @@
             // 
             // btnGenerateRandom
             // 
-            this.btnGenerateRandom.Location = new System.Drawing.Point(6, 126);
+            this.btnGenerateRandom.Location = new System.Drawing.Point(68, 134);
             this.btnGenerateRandom.Name = "btnGenerateRandom";
-            this.btnGenerateRandom.Size = new System.Drawing.Size(143, 23);
+            this.btnGenerateRandom.Size = new System.Drawing.Size(81, 23);
             this.btnGenerateRandom.TabIndex = 7;
-            this.btnGenerateRandom.Text = "Generate Random";
+            this.btnGenerateRandom.Text = "Random";
             this.btnGenerateRandom.UseVisualStyleBackColor = true;
             this.btnGenerateRandom.Click += new System.EventHandler(this.btnGenerateNew_Click);
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.label5);
+            this.groupBox4.Controls.Add(this.nudRandomCount);
             this.groupBox4.Controls.Add(this.label1);
             this.groupBox4.Controls.Add(this.nudPixelSize);
             this.groupBox4.Controls.Add(this.label3);
@@ -147,19 +152,50 @@
             this.groupBox4.Controls.Add(this.btnGenerateRandom);
             this.groupBox4.Location = new System.Drawing.Point(6, 3);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(174, 157);
+            this.groupBox4.Size = new System.Drawing.Size(159, 169);
             this.groupBox4.TabIndex = 8;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Generation";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(6, 121);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(38, 13);
+            this.label5.TabIndex = 15;
+            this.label5.Text = "Count:";
+            // 
+            // nudRandomCount
+            // 
+            this.nudRandomCount.Location = new System.Drawing.Point(9, 137);
+            this.nudRandomCount.Maximum = new decimal(new int[] {
+            3000,
+            0,
+            0,
+            0});
+            this.nudRandomCount.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudRandomCount.Name = "nudRandomCount";
+            this.nudRandomCount.Size = new System.Drawing.Size(53, 20);
+            this.nudRandomCount.TabIndex = 14;
+            this.nudRandomCount.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(79, 16);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(38, 13);
+            this.label3.Size = new System.Drawing.Size(41, 13);
             this.label3.TabIndex = 12;
-            this.label3.Text = "Height";
+            this.label3.Text = "Height:";
             // 
             // nudWorldHeight
             // 
@@ -188,9 +224,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(6, 16);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.Size = new System.Drawing.Size(38, 13);
             this.label2.TabIndex = 10;
-            this.label2.Text = "Width";
+            this.label2.Text = "Width:";
             // 
             // nudWorldWidth
             // 
@@ -230,9 +266,9 @@
             this.toolStripStatusLabel1,
             this.toolStripStatusLabel2,
             this.tsslMouseCoordinates});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 489);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 504);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(839, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(826, 22);
             this.statusStrip1.TabIndex = 9;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -270,9 +306,9 @@
             this.groupBox5.Controls.Add(this.btnEnableDisableTimer);
             this.groupBox5.Controls.Add(this.btnNextGeneration);
             this.groupBox5.Controls.Add(this.lGeneration);
-            this.groupBox5.Location = new System.Drawing.Point(6, 166);
+            this.groupBox5.Location = new System.Drawing.Point(6, 178);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(174, 108);
+            this.groupBox5.Size = new System.Drawing.Size(159, 108);
             this.groupBox5.TabIndex = 11;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Generation control";
@@ -312,7 +348,7 @@
             // 
             this.btnEnableDisableTimer.Location = new System.Drawing.Point(68, 29);
             this.btnEnableDisableTimer.Name = "btnEnableDisableTimer";
-            this.btnEnableDisableTimer.Size = new System.Drawing.Size(100, 23);
+            this.btnEnableDisableTimer.Size = new System.Drawing.Size(81, 23);
             this.btnEnableDisableTimer.TabIndex = 11;
             this.btnEnableDisableTimer.Text = "Enable Timer";
             this.btnEnableDisableTimer.UseVisualStyleBackColor = true;
@@ -326,7 +362,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(839, 511);
+            this.ClientSize = new System.Drawing.Size(826, 526);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.groupBox4);
@@ -339,6 +375,7 @@
             this.groupBox3.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudRandomCount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudWorldHeight)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudWorldWidth)).EndInit();
             this.statusStrip1.ResumeLayout(false);
@@ -375,6 +412,8 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
         private System.Windows.Forms.Timer timerWorldGeneration;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.NumericUpDown nudRandomCount;
     }
 }
 
