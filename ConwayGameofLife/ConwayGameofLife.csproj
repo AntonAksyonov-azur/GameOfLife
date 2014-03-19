@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="com\andaforce\arazect\data\GenericPair.cs" />
     <Compile Include="com\andaforce\arazect\life\World.cs" />
     <Compile Include="com\andaforce\arazect\visual\winforms\IShapePresentation.cs" />
     <Compile Include="com\andaforce\arazect\visual\winforms\GraphicalPresentation.cs" />

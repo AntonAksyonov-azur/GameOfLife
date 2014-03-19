@@ -61,5 +61,17 @@ namespace ConwayGameofLife
         {
             _presentation.SetPixelSize((int) nudPixelSize.Value);
         }
+
+        private void pBox_MouseClick(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void pBox_MouseMove(object sender, MouseEventArgs e)
+        {
+            tsslMouseCoordinates.Text = String.Format(
+                "Mouse coordinates = {0}:{1}",
+                e.X / _presentation.PixelSize, e.Y / _presentation.PixelSize);
+        }
     }
 }

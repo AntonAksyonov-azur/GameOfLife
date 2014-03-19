@@ -44,6 +44,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.nudWorldWidth = new System.Windows.Forms.NumericUpDown();
             this.btnGenerateClean = new System.Windows.Forms.Button();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.tsslMouseCoordinates = new System.Windows.Forms.ToolStripStatusLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pBox)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudPixelSize)).BeginInit();
@@ -52,6 +54,7 @@
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudWorldHeight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudWorldWidth)).BeginInit();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pBox
@@ -63,6 +66,8 @@
             this.pBox.TabIndex = 0;
             this.pBox.TabStop = false;
             this.pBox.Paint += new System.Windows.Forms.PaintEventHandler(this.pBox_Paint);
+            this.pBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pBox_MouseClick);
+            this.pBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pBox_MouseMove);
             // 
             // groupBox1
             // 
@@ -256,11 +261,28 @@
             this.btnGenerateClean.UseVisualStyleBackColor = true;
             this.btnGenerateClean.Click += new System.EventHandler(this.btnGenerateClean_Click);
             // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsslMouseCoordinates});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 489);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(838, 22);
+            this.statusStrip1.TabIndex = 9;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // tsslMouseCoordinates
+            // 
+            this.tsslMouseCoordinates.Name = "tsslMouseCoordinates";
+            this.tsslMouseCoordinates.Size = new System.Drawing.Size(138, 17);
+            this.tsslMouseCoordinates.Text = "Mouse coordinates  = (0:0)";
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(838, 511);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.btnNextStep);
             this.Controls.Add(this.groupBox3);
@@ -280,7 +302,10 @@
             this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudWorldHeight)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudWorldWidth)).EndInit();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -302,6 +327,8 @@
         private System.Windows.Forms.NumericUpDown nudWorldHeight;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.NumericUpDown nudWorldWidth;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel tsslMouseCoordinates;
     }
 }
 
