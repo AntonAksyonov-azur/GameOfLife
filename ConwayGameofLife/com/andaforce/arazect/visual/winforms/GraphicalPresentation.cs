@@ -14,7 +14,10 @@ namespace ConwayGameofLife.com.andaforce.arazect.visual.winforms
         private Dictionary<ShapeType, IShapePresentation> _shapesPresentations =
             new Dictionary<ShapeType, IShapePresentation>();
 
-        public GraphicalPresentation(ShapeType shapeType, Color color, int pixelSize)
+        private Pen _gridPen;
+
+        public GraphicalPresentation(
+            ShapeType shapeType, Color color, int pixelSize)
         {
             ShapeType = shapeType;
             Color = color;
@@ -22,6 +25,26 @@ namespace ConwayGameofLife.com.andaforce.arazect.visual.winforms
 
             _shapesPresentations.Add(ShapeType.Circle, new EllipseShapePresentation(Color));
             _shapesPresentations.Add(ShapeType.Rectangle, new RectangleShapePresentation(Color));
+
+            _gridPen = new Pen(Color.White);
+        }
+
+        public void DrawGrid(Graphics g, Color lineColor, World world)
+        {
+            var maxX = world.WorldWidth * PixelSize;
+            var maxY = world.WorldHeight * PixelSize;
+
+            _gridPen.Color = lineColor;
+
+            for (int x = 0; x < world.WorldWidth; x++)
+            {
+                g.DrawLine(_gridPen, x * PixelSize, 0, x * PixelSize, maxY);
+            }
+
+            for (int y = 0; y < world.WorldHeight; y++)
+            {
+                g.DrawLine(_gridPen, 0, y * PixelSize, maxX, y * PixelSize);
+            }
         }
 
         public void DrawWorld(Graphics g, World world)
