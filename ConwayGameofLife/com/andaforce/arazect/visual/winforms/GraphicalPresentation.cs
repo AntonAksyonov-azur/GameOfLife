@@ -9,7 +9,7 @@ namespace ConwayGameofLife.com.andaforce.arazect.visual.winforms
     public class GraphicalPresentation
     {
         public ShapeType ShapeType { get; private set; }
-        public Color Color { get; private set; }
+        public Color ElementColor { get; private set; }
         public int PixelSize { get; private set; }
 
         private Dictionary<ShapeType, IShapePresentation> _shapesPresentations =
@@ -18,24 +18,22 @@ namespace ConwayGameofLife.com.andaforce.arazect.visual.winforms
         private Pen _gridPen;
 
         public GraphicalPresentation(
-            ShapeType shapeType, Color color, int pixelSize)
+            ShapeType shapeType, Color elementColor, Color gridColor, int pixelSize)
         {
             ShapeType = shapeType;
-            Color = color;
+            ElementColor = elementColor;
             PixelSize = pixelSize;
 
-            _shapesPresentations.Add(ShapeType.Circle, new EllipseShapePresentation(Color));
-            _shapesPresentations.Add(ShapeType.Rectangle, new RectangleShapePresentation(Color));
+            _shapesPresentations.Add(ShapeType.Circle, new EllipseShapePresentation(ElementColor));
+            _shapesPresentations.Add(ShapeType.Rectangle, new RectangleShapePresentation(ElementColor));
 
-            _gridPen = new Pen(Color.White);
+            _gridPen = new Pen(gridColor);
         }
 
-        public void DrawGrid(Graphics g, Color lineColor, World world)
+        public void DrawGrid(Graphics g, World world)
         {
             var maxX = world.WorldWidth * PixelSize;
             var maxY = world.WorldHeight * PixelSize;
-
-            _gridPen.Color = lineColor;
 
             for (int x = 0; x < world.WorldWidth; x++)
             {
@@ -59,6 +57,7 @@ namespace ConwayGameofLife.com.andaforce.arazect.visual.winforms
                     {
                         shapePresentation.Draw(
                             g,
+                            ElementColor,
                             x * PixelSize,
                             y * PixelSize,
                             PixelSize);
@@ -75,9 +74,14 @@ namespace ConwayGameofLife.com.andaforce.arazect.visual.winforms
 
         #region Setters
 
-        public void SetColor(Color color)
+        public void SetElementColor(Color color)
         {
-            Color = color;
+            ElementColor = color;
+        }
+
+        public void SetGridColor(Color color)
+        {
+            _gridPen.Color = color;
         }
 
         public void SetPixelSize(int pixelSize)
@@ -89,6 +93,7 @@ namespace ConwayGameofLife.com.andaforce.arazect.visual.winforms
         {
             ShapeType = shapeType;
         }
+
 
         #endregion
     }

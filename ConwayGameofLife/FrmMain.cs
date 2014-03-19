@@ -17,7 +17,6 @@ namespace ConwayGameofLife
 
         private World _gameWorld;
         private GraphicalPresentation _presentation;
-        private Color _gridColor;
 
         private GenericPoint<int> _currentPoint;
         private SolidBrush _highlightBrush;
@@ -32,10 +31,10 @@ namespace ConwayGameofLife
                 new GraphicalPresentation(
                     ShapeType.Rectangle,
                     Color.Red,
+                    Color.FromArgb(128, Color.White),
                     (int) nudPixelSize.Value);
 
-            _gridColor = Color.FromArgb(128, Color.White);
-            _highlightBrush = new SolidBrush(Color.FromArgb(128, Color.Blue));
+            _highlightBrush = new SolidBrush(Color.FromArgb(128, Color.White));
 
             _currentPoint = new GenericPoint<int>();
 
@@ -77,6 +76,51 @@ namespace ConwayGameofLife
                     ? DisableTimer
                     : EnableTimer;
         }
+
+        #region elementColor Selection
+
+        private void btnSelectElementColor_Click(object sender, EventArgs e)
+        {
+            using (var colorDialog = new ColorDialog() {FullOpen = true})
+            {
+                if (colorDialog.ShowDialog() == DialogResult.OK)
+                {
+                    _presentation.SetElementColor(colorDialog.Color);
+                }
+            }
+            pBox.Refresh();
+        }
+
+        private void btnSelectGridColor_Click(object sender, EventArgs e)
+        {
+            using (var colorDialog = new ColorDialog() {FullOpen = true})
+            {
+                if (colorDialog.ShowDialog() == DialogResult.OK)
+                {
+                    _presentation.SetGridColor(colorDialog.Color);
+                }
+            }
+            pBox.Refresh();
+        }
+
+        private void btnSelectBackgroundColor_Click(object sender, EventArgs e)
+        {
+            using (var colorDialog = new ColorDialog() {FullOpen = true})
+            {
+                if (colorDialog.ShowDialog() == DialogResult.OK)
+                {
+                    pBox.BackColor = colorDialog.Color;
+                    _highlightBrush.Color =
+                        Color.FromArgb(128,
+                            255 - colorDialog.Color.R,
+                            255 - colorDialog.Color.G,
+                            255 - colorDialog.Color.B);
+                }
+            }
+            pBox.Refresh();
+        }
+
+        #endregion
 
         #endregion
 
@@ -128,7 +172,7 @@ namespace ConwayGameofLife
         private void pBox_Paint(object sender, PaintEventArgs e)
         {
             _presentation.DrawWorld(e.Graphics, _gameWorld);
-            _presentation.DrawGrid(e.Graphics, _gridColor, _gameWorld);
+            _presentation.DrawGrid(e.Graphics, _gameWorld);
 
             e.Graphics.FillRectangle(
                 _highlightBrush,

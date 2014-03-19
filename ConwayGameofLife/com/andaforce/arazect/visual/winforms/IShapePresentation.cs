@@ -8,6 +8,6 @@ namespace ConwayGameofLife.com.andaforce.arazect.visual.winforms
 {
     public interface IShapePresentation
     {
-        void Draw(Graphics g, int x, int y, int width);
+        void Draw(Graphics g, Color elementColor, int x, int y, int width);
     }
 }

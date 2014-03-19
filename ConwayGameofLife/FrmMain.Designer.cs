@@ -53,6 +53,10 @@
             this.nudTimerInterval = new System.Windows.Forms.NumericUpDown();
             this.btnEnableDisableTimer = new System.Windows.Forms.Button();
             this.timerWorldGeneration = new System.Windows.Forms.Timer(this.components);
+            this.btnSelectElementColor = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnSelectGridColor = new System.Windows.Forms.Button();
+            this.btnSelectBackgroundColor = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPixelSize)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -63,6 +67,7 @@
             this.statusStrip1.SuspendLayout();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudTimerInterval)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pBox
@@ -359,11 +364,54 @@
             // 
             this.timerWorldGeneration.Tick += new System.EventHandler(this.timer_Tick);
             // 
+            // btnSelectElementColor
+            // 
+            this.btnSelectElementColor.Location = new System.Drawing.Point(6, 19);
+            this.btnSelectElementColor.Name = "btnSelectElementColor";
+            this.btnSelectElementColor.Size = new System.Drawing.Size(147, 23);
+            this.btnSelectElementColor.TabIndex = 12;
+            this.btnSelectElementColor.Text = "Element elementColor";
+            this.btnSelectElementColor.UseVisualStyleBackColor = true;
+            this.btnSelectElementColor.Click += new System.EventHandler(this.btnSelectElementColor_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.btnSelectBackgroundColor);
+            this.groupBox1.Controls.Add(this.btnSelectGridColor);
+            this.groupBox1.Controls.Add(this.btnSelectElementColor);
+            this.groupBox1.Location = new System.Drawing.Point(6, 293);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(159, 107);
+            this.groupBox1.TabIndex = 12;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Colors";
+            // 
+            // btnSelectGridColor
+            // 
+            this.btnSelectGridColor.Location = new System.Drawing.Point(6, 48);
+            this.btnSelectGridColor.Name = "btnSelectGridColor";
+            this.btnSelectGridColor.Size = new System.Drawing.Size(147, 23);
+            this.btnSelectGridColor.TabIndex = 13;
+            this.btnSelectGridColor.Text = "Grid";
+            this.btnSelectGridColor.UseVisualStyleBackColor = true;
+            this.btnSelectGridColor.Click += new System.EventHandler(this.btnSelectGridColor_Click);
+            // 
+            // btnSelectBackgroundColor
+            // 
+            this.btnSelectBackgroundColor.Location = new System.Drawing.Point(6, 77);
+            this.btnSelectBackgroundColor.Name = "btnSelectBackgroundColor";
+            this.btnSelectBackgroundColor.Size = new System.Drawing.Size(147, 23);
+            this.btnSelectBackgroundColor.TabIndex = 14;
+            this.btnSelectBackgroundColor.Text = "Background";
+            this.btnSelectBackgroundColor.UseVisualStyleBackColor = true;
+            this.btnSelectBackgroundColor.Click += new System.EventHandler(this.btnSelectBackgroundColor_Click);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(826, 526);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.groupBox4);
@@ -386,6 +434,7 @@
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudTimerInterval)).EndInit();
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -417,6 +466,10 @@
         private System.Windows.Forms.Timer timerWorldGeneration;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.NumericUpDown nudRandomCount;
+        private System.Windows.Forms.Button btnSelectElementColor;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button btnSelectBackgroundColor;
+        private System.Windows.Forms.Button btnSelectGridColor;
     }
 }
 
