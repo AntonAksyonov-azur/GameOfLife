@@ -46,6 +46,11 @@ namespace ConwayGameofLife.com.andaforce.arazect.life
 
         private void SetFutureCellAlive(int x, int y)
         {
+            if (x == 0 && y == 0)
+            {
+                var a = 0;
+            }
+
             _futureWorldState[y, x] = 1;
         }
 
@@ -74,23 +79,23 @@ namespace ConwayGameofLife.com.andaforce.arazect.life
             ClearFuture();
 
             bool isCellDead;
-            int neighboursCount;
+            int neighborhood;
 
             for (int x = 0; x < WorldWidth; x++)
             {
                 for (int y = 0; y < WorldHeight; y++)
                 {
                     isCellDead = IsCellDead(x, y);
-                    neighboursCount = GetNeighboursCount(x, y);
-                    if (isCellDead && neighboursCount == 3)
+                    neighborhood = GetNeighborhoodCount(x, y);
+                    if (isCellDead && neighborhood == 3)
                     {
                         SetFutureCellAlive(x, y);
                     }
-                    else if (!isCellDead && (neighboursCount == 2 || neighboursCount == 3))
+                    else if (!isCellDead && (neighborhood == 2 || neighborhood == 3))
                     {
                         SetFutureCellAlive(x, y);
                     }
-                    else if (!isCellDead && (neighboursCount < 2 || neighboursCount > 3))
+                    else if (!isCellDead && (neighborhood < 2 || neighborhood > 3))
                     {
                         SetFutureCellDead(x, y);
                     }
@@ -126,7 +131,7 @@ namespace ConwayGameofLife.com.andaforce.arazect.life
             _currentWorldState = new int[WorldHeight, WorldWidth];
         }
 
-        private int GetNeighboursCount(int checkedX, int checkedY)
+        private int GetNeighborhoodCount(int checkedX, int checkedY)
         {
             Point p;
             int neighboursCount = 0;
@@ -144,7 +149,7 @@ namespace ConwayGameofLife.com.andaforce.arazect.life
                     continue;
                 }
 
-                if (IsCellDead(checkedX + p.X, checkedY + p.Y))
+                if (!IsCellDead(checkedX + p.X, checkedY + p.Y))
                 {
                     neighboursCount += 1;
                 }
