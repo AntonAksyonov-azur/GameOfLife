@@ -42,5 +42,20 @@ namespace ConwayGameofLife.com.andaforce.arazect.visual.winforms
                 }
             }
         }
+
+        public void SetColor(Color color)
+        {
+            Color = color;
+        }
+
+        public void SetPixelSize(int pixelSize)
+        {
+            PixelSize = pixelSize;
+        }
+
+        public void SetShapeType(ShapeType shapeType)
+        {
+            ShapeType = shapeType;
+        }
     }
 }
