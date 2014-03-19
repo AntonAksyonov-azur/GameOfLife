@@ -368,8 +368,10 @@
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "FrmMain";
-            this.Text = "Form1";
+            this.Text = "Conway\'s Game Of Life";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPixelSize)).EndInit();
