@@ -29,14 +29,10 @@
         private void InitializeComponent()
         {
             this.pBox = new System.Windows.Forms.PictureBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.rbClear = new System.Windows.Forms.RadioButton();
-            this.rbDraw = new System.Windows.Forms.RadioButton();
             this.nudPixelSize = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.btnNextStep = new System.Windows.Forms.Button();
+            this.btnNextGeneration = new System.Windows.Forms.Button();
             this.btnGenerateRandom = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -48,16 +44,20 @@
             this.tsslMouseCoordinates = new System.Windows.Forms.ToolStripStatusLabel();
             this.lGeneration = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.btnEnableDisableTimer = new System.Windows.Forms.Button();
+            this.nudTimerInterval = new System.Windows.Forms.NumericUpDown();
+            this.label4 = new System.Windows.Forms.Label();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pBox)).BeginInit();
-            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudPixelSize)).BeginInit();
-            this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudWorldHeight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudWorldWidth)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudTimerInterval)).BeginInit();
             this.SuspendLayout();
             // 
             // pBox
@@ -72,42 +72,9 @@
             this.pBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pBox_MouseClick);
             this.pBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pBox_MouseMove);
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.rbClear);
-            this.groupBox1.Controls.Add(this.rbDraw);
-            this.groupBox1.Location = new System.Drawing.Point(6, 3);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(174, 66);
-            this.groupBox1.TabIndex = 1;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Drawing";
-            // 
-            // rbClear
-            // 
-            this.rbClear.AutoSize = true;
-            this.rbClear.Location = new System.Drawing.Point(6, 42);
-            this.rbClear.Name = "rbClear";
-            this.rbClear.Size = new System.Drawing.Size(49, 17);
-            this.rbClear.TabIndex = 1;
-            this.rbClear.Text = "Clear";
-            this.rbClear.UseVisualStyleBackColor = true;
-            // 
-            // rbDraw
-            // 
-            this.rbDraw.AutoSize = true;
-            this.rbDraw.Checked = true;
-            this.rbDraw.Location = new System.Drawing.Point(6, 19);
-            this.rbDraw.Name = "rbDraw";
-            this.rbDraw.Size = new System.Drawing.Size(50, 17);
-            this.rbDraw.TabIndex = 0;
-            this.rbDraw.TabStop = true;
-            this.rbDraw.Text = "Draw";
-            this.rbDraw.UseVisualStyleBackColor = true;
-            // 
             // nudPixelSize
             // 
-            this.nudPixelSize.Location = new System.Drawing.Point(9, 32);
+            this.nudPixelSize.Location = new System.Drawing.Point(9, 71);
             this.nudPixelSize.Maximum = new decimal(new int[] {
             128,
             0,
@@ -131,22 +98,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 16);
+            this.label1.Location = new System.Drawing.Point(6, 55);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(52, 13);
+            this.label1.Size = new System.Drawing.Size(108, 13);
             this.label1.TabIndex = 3;
-            this.label1.Text = "Pixel Size";
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Controls.Add(this.nudPixelSize);
-            this.groupBox2.Location = new System.Drawing.Point(6, 201);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(174, 67);
-            this.groupBox2.TabIndex = 4;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Size";
+            this.label1.Text = "Pixel presentaion size";
             // 
             // groupBox3
             // 
@@ -157,21 +113,21 @@
             this.groupBox3.TabIndex = 5;
             this.groupBox3.TabStop = false;
             // 
-            // btnNextStep
+            // btnNextGeneration
             // 
-            this.btnNextStep.Location = new System.Drawing.Point(6, 19);
-            this.btnNextStep.Name = "btnNextStep";
-            this.btnNextStep.Size = new System.Drawing.Size(103, 23);
-            this.btnNextStep.TabIndex = 6;
-            this.btnNextStep.Text = "Next Generation";
-            this.btnNextStep.UseVisualStyleBackColor = true;
-            this.btnNextStep.Click += new System.EventHandler(this.btnNextStep_Click);
+            this.btnNextGeneration.Location = new System.Drawing.Point(6, 58);
+            this.btnNextGeneration.Name = "btnNextGeneration";
+            this.btnNextGeneration.Size = new System.Drawing.Size(162, 23);
+            this.btnNextGeneration.TabIndex = 6;
+            this.btnNextGeneration.Text = "Force Next Generation";
+            this.btnNextGeneration.UseVisualStyleBackColor = true;
+            this.btnNextGeneration.Click += new System.EventHandler(this.btnNextStep_Click);
             // 
             // btnGenerateRandom
             // 
-            this.btnGenerateRandom.Location = new System.Drawing.Point(6, 87);
+            this.btnGenerateRandom.Location = new System.Drawing.Point(6, 126);
             this.btnGenerateRandom.Name = "btnGenerateRandom";
-            this.btnGenerateRandom.Size = new System.Drawing.Size(103, 23);
+            this.btnGenerateRandom.Size = new System.Drawing.Size(143, 23);
             this.btnGenerateRandom.TabIndex = 7;
             this.btnGenerateRandom.Text = "Generate Random";
             this.btnGenerateRandom.UseVisualStyleBackColor = true;
@@ -179,15 +135,17 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.label1);
+            this.groupBox4.Controls.Add(this.nudPixelSize);
             this.groupBox4.Controls.Add(this.label3);
             this.groupBox4.Controls.Add(this.nudWorldHeight);
             this.groupBox4.Controls.Add(this.label2);
             this.groupBox4.Controls.Add(this.nudWorldWidth);
             this.groupBox4.Controls.Add(this.btnGenerateClean);
             this.groupBox4.Controls.Add(this.btnGenerateRandom);
-            this.groupBox4.Location = new System.Drawing.Point(6, 75);
+            this.groupBox4.Location = new System.Drawing.Point(6, 3);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(174, 120);
+            this.groupBox4.Size = new System.Drawing.Size(174, 157);
             this.groupBox4.TabIndex = 8;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Generation";
@@ -256,9 +214,9 @@
             // 
             // btnGenerateClean
             // 
-            this.btnGenerateClean.Location = new System.Drawing.Point(6, 58);
+            this.btnGenerateClean.Location = new System.Drawing.Point(6, 97);
             this.btnGenerateClean.Name = "btnGenerateClean";
-            this.btnGenerateClean.Size = new System.Drawing.Size(103, 23);
+            this.btnGenerateClean.Size = new System.Drawing.Size(143, 23);
             this.btnGenerateClean.TabIndex = 8;
             this.btnGenerateClean.Text = "Generate Clean";
             this.btnGenerateClean.UseVisualStyleBackColor = true;
@@ -267,10 +225,12 @@
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1,
+            this.toolStripStatusLabel2,
             this.tsslMouseCoordinates});
             this.statusStrip1.Location = new System.Drawing.Point(0, 489);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(838, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(839, 22);
             this.statusStrip1.TabIndex = 9;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -283,7 +243,7 @@
             // lGeneration
             // 
             this.lGeneration.AutoSize = true;
-            this.lGeneration.Location = new System.Drawing.Point(6, 45);
+            this.lGeneration.Location = new System.Drawing.Point(6, 84);
             this.lGeneration.Name = "lGeneration";
             this.lGeneration.Size = new System.Drawing.Size(112, 13);
             this.lGeneration.TabIndex = 10;
@@ -291,35 +251,85 @@
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.btnNextStep);
+            this.groupBox5.Controls.Add(this.label4);
+            this.groupBox5.Controls.Add(this.nudTimerInterval);
+            this.groupBox5.Controls.Add(this.btnEnableDisableTimer);
+            this.groupBox5.Controls.Add(this.btnNextGeneration);
             this.groupBox5.Controls.Add(this.lGeneration);
-            this.groupBox5.Location = new System.Drawing.Point(6, 274);
+            this.groupBox5.Location = new System.Drawing.Point(6, 166);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(174, 70);
+            this.groupBox5.Size = new System.Drawing.Size(174, 108);
             this.groupBox5.TabIndex = 11;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Generation control";
+            this.groupBox5.Enter += new System.EventHandler(this.groupBox5_Enter);
+            // 
+            // btnEnableDisableTimer
+            // 
+            this.btnEnableDisableTimer.Location = new System.Drawing.Point(68, 29);
+            this.btnEnableDisableTimer.Name = "btnEnableDisableTimer";
+            this.btnEnableDisableTimer.Size = new System.Drawing.Size(100, 23);
+            this.btnEnableDisableTimer.TabIndex = 11;
+            this.btnEnableDisableTimer.Text = "Enable Timer";
+            this.btnEnableDisableTimer.UseVisualStyleBackColor = true;
+            // 
+            // nudTimerInterval
+            // 
+            this.nudTimerInterval.Location = new System.Drawing.Point(9, 32);
+            this.nudTimerInterval.Maximum = new decimal(new int[] {
+            3000,
+            0,
+            0,
+            0});
+            this.nudTimerInterval.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudTimerInterval.Name = "nudTimerInterval";
+            this.nudTimerInterval.Size = new System.Drawing.Size(53, 20);
+            this.nudTimerInterval.TabIndex = 12;
+            this.nudTimerInterval.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 16);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(45, 13);
+            this.label4.TabIndex = 13;
+            this.label4.Text = "Interval:";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(196, 17);
+            this.toolStripStatusLabel1.Text = "Note, that size of view area is 640x480";
+            // 
+            // toolStripStatusLabel2
+            // 
+            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(11, 17);
+            this.toolStripStatusLabel2.Text = "|";
             // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(838, 511);
+            this.ClientSize = new System.Drawing.Size(839, 511);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
             this.Name = "FrmMain";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pBox)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudPixelSize)).EndInit();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
@@ -329,6 +339,7 @@
             this.statusStrip1.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudTimerInterval)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -337,14 +348,10 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pBox;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton rbClear;
-        private System.Windows.Forms.RadioButton rbDraw;
         private System.Windows.Forms.NumericUpDown nudPixelSize;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Button btnNextStep;
+        private System.Windows.Forms.Button btnNextGeneration;
         private System.Windows.Forms.Button btnGenerateRandom;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Button btnGenerateClean;
@@ -356,6 +363,11 @@
         private System.Windows.Forms.ToolStripStatusLabel tsslMouseCoordinates;
         private System.Windows.Forms.Label lGeneration;
         private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.Button btnEnableDisableTimer;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.NumericUpDown nudTimerInterval;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
     }
 }
 

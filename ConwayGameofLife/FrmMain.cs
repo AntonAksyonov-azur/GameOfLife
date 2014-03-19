@@ -102,5 +102,10 @@ namespace ConwayGameofLife
 
             pBox.Refresh();
         }
+
+        private void groupBox5_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }
