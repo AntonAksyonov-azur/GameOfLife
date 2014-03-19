@@ -89,6 +89,11 @@ namespace ConwayGameofLife
             pBox.Refresh();
         }
 
+        private void nudTimerInterval_ValueChanged(object sender, EventArgs e)
+        {
+            timerWorldGeneration.Interval = (int) nudTimerInterval.Value;
+        }
+
         #endregion
 
         #region Mouse on Picture box 
@@ -137,6 +142,5 @@ namespace ConwayGameofLife
         {
             btnNextGeneration.PerformClick();
         }
-
     }
 }

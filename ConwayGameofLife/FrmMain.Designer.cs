@@ -343,6 +343,7 @@
             0,
             0,
             0});
+            this.nudTimerInterval.ValueChanged += new System.EventHandler(this.nudTimerInterval_ValueChanged);
             // 
             // btnEnableDisableTimer
             // 
