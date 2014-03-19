@@ -11,7 +11,7 @@ namespace ConwayGameofLife.com.andaforce.arazect.visual.winforms
         public Color Color { get; private set; }
         public int PixelSize { get; private set; }
 
-        private Dictionary<ShapeType, IShapePresentation> _shapesPresentations = 
+        private Dictionary<ShapeType, IShapePresentation> _shapesPresentations =
             new Dictionary<ShapeType, IShapePresentation>();
 
         public GraphicalPresentation(ShapeType shapeType, Color color, int pixelSize)
@@ -26,7 +26,21 @@ namespace ConwayGameofLife.com.andaforce.arazect.visual.winforms
 
         public void DrawWorld(Graphics g, World world)
         {
-
+            var shapePresentation = _shapesPresentations[ShapeType];
+            for (int x = 0; x < world.WorldWidth; x++)
+            {
+                for (int y = 0; y < world.WorldHeight; y++)
+                {
+                    if (!world.IsCellDead(x, y))
+                    {
+                        shapePresentation.Draw(
+                            g,
+                            x * PixelSize,
+                            y * PixelSize,
+                            PixelSize);
+                    }
+                }
+            }
         }
     }
 }
