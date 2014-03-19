@@ -47,7 +47,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="com\andaforce\arazect\life\World.cs" />
-    <Compile Include="com\andaforce\arazect\life\Unit.cs" />
+    <Compile Include="com\andaforce\arazect\visual\winforms\IShapePresentation.cs" />
+    <Compile Include="com\andaforce\arazect\visual\winforms\GraphicalPresentation.cs" />
+    <Compile Include="com\andaforce\arazect\visual\ShapeType.cs" />
+    <Compile Include="com\andaforce\arazect\visual\winforms\shapes\EllipseShapePresentation.cs" />
+    <Compile Include="com\andaforce\arazect\visual\winforms\shapes\RectangleShapePresentation.cs" />
     <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>

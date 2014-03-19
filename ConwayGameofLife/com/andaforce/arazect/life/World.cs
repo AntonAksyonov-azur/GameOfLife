@@ -4,13 +4,13 @@
     {
         private int[,] _worldState;
         public int WorldWidth { get; private set; }
-        public int WorldsHeight { get; private set; }
+        public int WorldHeight { get; private set; }
 
         public World(int worldWidth, int worldHeight)
         {
             _worldState = new int[worldHeight, worldWidth];
             WorldWidth = worldWidth;
-            WorldsHeight = worldHeight;
+            WorldHeight = worldHeight;
         }
 
         public void SetCellAlive(int x, int y)
@@ -34,7 +34,7 @@
             int neighbours;
             for (int x = 0; x < WorldWidth; x++)
             {
-                for (int y = 0; y < WorldsHeight; y++)
+                for (int y = 0; y < WorldHeight; y++)
                 {
                     isCellDead = IsCellDead(x, y);
                     neighbours = GetNeighboursCount(x, y);
@@ -65,7 +65,7 @@
                 int bugY = checkedY + p.Y;
 
                 if (bufX >= WorldWidth ||
-                    bugY >= WorldsHeight ||
+                    bugY >= WorldHeight ||
                     bufX < 0 ||
                     bugY < 0)
                 {
