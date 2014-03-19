@@ -182,7 +182,7 @@ namespace ConwayGameofLife
 
             if (_isDrawing)
             {
-                SetLiveState(e); 
+                SetLiveState(e);
             }
 
             pBox.Refresh();
@@ -193,7 +193,10 @@ namespace ConwayGameofLife
         private void pBox_Paint(object sender, PaintEventArgs e)
         {
             _presentation.DrawWorld(e.Graphics, _gameWorld);
-            //_presentation.DrawGrid(e.Graphics, _gameWorld);
+            if (cbDrawGrid.Checked)
+            {
+                _presentation.DrawGrid(e.Graphics, _gameWorld);
+            }
 
             e.Graphics.FillRectangle(
                 _highlightBrush,
@@ -207,12 +210,5 @@ namespace ConwayGameofLife
         {
             btnNextGeneration.PerformClick();
         }
-
-        private void cbDrawGrid_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-       
     }
 }

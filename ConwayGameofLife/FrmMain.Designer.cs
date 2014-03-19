@@ -36,6 +36,7 @@
             this.btnNextGeneration = new System.Windows.Forms.Button();
             this.btnGenerateRandom = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.cbDrawGrid = new System.Windows.Forms.CheckBox();
             this.label5 = new System.Windows.Forms.Label();
             this.nudRandomCount = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
@@ -57,7 +58,6 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnSelectBackgroundColor = new System.Windows.Forms.Button();
             this.btnSelectGridColor = new System.Windows.Forms.Button();
-            this.cbDrawGrid = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPixelSize)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -165,6 +165,18 @@
             this.groupBox4.TabIndex = 8;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Generation";
+            // 
+            // cbDrawGrid
+            // 
+            this.cbDrawGrid.AutoSize = true;
+            this.cbDrawGrid.Checked = true;
+            this.cbDrawGrid.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbDrawGrid.Location = new System.Drawing.Point(9, 163);
+            this.cbDrawGrid.Name = "cbDrawGrid";
+            this.cbDrawGrid.Size = new System.Drawing.Size(73, 17);
+            this.cbDrawGrid.TabIndex = 16;
+            this.cbDrawGrid.Text = "Draw Grid";
+            this.cbDrawGrid.UseVisualStyleBackColor = true;
             // 
             // label5
             // 
@@ -409,17 +421,6 @@
             this.btnSelectGridColor.Text = "Grid";
             this.btnSelectGridColor.UseVisualStyleBackColor = true;
             this.btnSelectGridColor.Click += new System.EventHandler(this.btnSelectGridColor_Click);
-            // 
-            // cbDrawGrid
-            // 
-            this.cbDrawGrid.AutoSize = true;
-            this.cbDrawGrid.Location = new System.Drawing.Point(9, 163);
-            this.cbDrawGrid.Name = "cbDrawGrid";
-            this.cbDrawGrid.Size = new System.Drawing.Size(73, 17);
-            this.cbDrawGrid.TabIndex = 16;
-            this.cbDrawGrid.Text = "Draw Grid";
-            this.cbDrawGrid.UseVisualStyleBackColor = true;
-            this.cbDrawGrid.CheckedChanged += new System.EventHandler(this.cbDrawGrid_CheckedChanged);
             // 
             // FrmMain
             // 
