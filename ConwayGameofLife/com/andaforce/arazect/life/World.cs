@@ -2,39 +2,39 @@
 {
     public class World
     {
-        private Unit[,] _worldState;
-        private int _worldWidth;
-        private int _worldsHeight;
+        private int[,] _worldState;
+        public int WorldWidth { get; private set; }
+        public int WorldsHeight { get; private set; }
 
         public World(int worldWidth, int worldHeight)
         {
-            _worldState = new Unit[worldHeight, worldWidth];
-            _worldWidth = worldWidth;
-            _worldsHeight = worldHeight;
+            _worldState = new int[worldHeight, worldWidth];
+            WorldWidth = worldWidth;
+            WorldsHeight = worldHeight;
         }
 
         public void SetCellAlive(int x, int y)
         {
-            _worldState[y, x] = new Unit();
+            _worldState[y, x] = 1;
         }
 
         public void SetCellDead(int x, int y)
         {
-            _worldState[y, x] = null;
+            _worldState[y, x] = 0;
         }
 
         public bool IsCellDead(int x, int y)
         {
-            return _worldState[y, x] == null;
+            return _worldState[y, x] == 0;
         }
 
         public void PerformNextStep()
         {
             bool isCellDead;
             int neighbours;
-            for (int x = 0; x < _worldWidth; x++)
+            for (int x = 0; x < WorldWidth; x++)
             {
-                for (int y = 0; y < _worldsHeight; y++)
+                for (int y = 0; y < WorldsHeight; y++)
                 {
                     isCellDead = IsCellDead(x, y);
                     neighbours = GetNeighboursCount(x, y);
@@ -64,8 +64,8 @@
                 int bufX = checkedX + p.X;
                 int bugY = checkedY + p.Y;
 
-                if (bufX >= _worldWidth ||
-                    bugY >= _worldsHeight ||
+                if (bufX >= WorldWidth ||
+                    bugY >= WorldsHeight ||
                     bufX < 0 ||
                     bugY < 0)
                 {
