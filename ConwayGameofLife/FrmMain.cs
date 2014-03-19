@@ -21,6 +21,8 @@ namespace ConwayGameofLife
         private GenericPoint<int> _currentPoint;
         private SolidBrush _highlightBrush;
 
+        private bool _isDrawing;
+
         private const String EnableTimer = "EnableTimer";
         private const String DisableTimer = "DisableTimer";
 
@@ -144,6 +146,12 @@ namespace ConwayGameofLife
 
         private void pBox_MouseClick(object sender, MouseEventArgs e)
         {
+            SetLiveState(e);
+            pBox.Refresh();
+        }
+
+        private void SetLiveState(MouseEventArgs e)
+        {
             _currentPoint = _presentation.ScreenToWorldPoint(e.X, e.Y);
             switch (e.Button)
             {
@@ -154,8 +162,16 @@ namespace ConwayGameofLife
                     _gameWorld.SetCellDead(_currentPoint.X, _currentPoint.Y);
                     break;
             }
+        }
 
-            pBox.Refresh();
+        private void pBox_MouseDown(object sender, MouseEventArgs e)
+        {
+            _isDrawing = true;
+        }
+
+        private void pBox_MouseUp(object sender, MouseEventArgs e)
+        {
+            _isDrawing = false;
         }
 
         private void pBox_MouseMove(object sender, MouseEventArgs e)
@@ -163,6 +179,11 @@ namespace ConwayGameofLife
             _currentPoint = _presentation.ScreenToWorldPoint(e.X, e.Y);
             tsslMouseCoordinates.Text =
                 String.Format("Mouse coordinates = {0}:{1}", _currentPoint.X, _currentPoint.Y);
+
+            if (_isDrawing)
+            {
+                SetLiveState(e); 
+            }
 
             pBox.Refresh();
         }
@@ -172,7 +193,7 @@ namespace ConwayGameofLife
         private void pBox_Paint(object sender, PaintEventArgs e)
         {
             _presentation.DrawWorld(e.Graphics, _gameWorld);
-            _presentation.DrawGrid(e.Graphics, _gameWorld);
+            //_presentation.DrawGrid(e.Graphics, _gameWorld);
 
             e.Graphics.FillRectangle(
                 _highlightBrush,
@@ -186,5 +207,12 @@ namespace ConwayGameofLife
         {
             btnNextGeneration.PerformClick();
         }
+
+        private void cbDrawGrid_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+       
     }
 }

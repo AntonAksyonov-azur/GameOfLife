@@ -55,8 +55,9 @@
             this.timerWorldGeneration = new System.Windows.Forms.Timer(this.components);
             this.btnSelectElementColor = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnSelectGridColor = new System.Windows.Forms.Button();
             this.btnSelectBackgroundColor = new System.Windows.Forms.Button();
+            this.btnSelectGridColor = new System.Windows.Forms.Button();
+            this.cbDrawGrid = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPixelSize)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -80,7 +81,9 @@
             this.pBox.TabStop = false;
             this.pBox.Paint += new System.Windows.Forms.PaintEventHandler(this.pBox_Paint);
             this.pBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pBox_MouseClick);
+            this.pBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pBox_MouseDown);
             this.pBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pBox_MouseMove);
+            this.pBox.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pBox_MouseUp);
             // 
             // nudPixelSize
             // 
@@ -145,6 +148,7 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.cbDrawGrid);
             this.groupBox4.Controls.Add(this.label5);
             this.groupBox4.Controls.Add(this.nudRandomCount);
             this.groupBox4.Controls.Add(this.label1);
@@ -157,7 +161,7 @@
             this.groupBox4.Controls.Add(this.btnGenerateRandom);
             this.groupBox4.Location = new System.Drawing.Point(6, 3);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(159, 169);
+            this.groupBox4.Size = new System.Drawing.Size(159, 192);
             this.groupBox4.TabIndex = 8;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Generation";
@@ -311,7 +315,7 @@
             this.groupBox5.Controls.Add(this.btnEnableDisableTimer);
             this.groupBox5.Controls.Add(this.btnNextGeneration);
             this.groupBox5.Controls.Add(this.lGeneration);
-            this.groupBox5.Location = new System.Drawing.Point(6, 178);
+            this.groupBox5.Location = new System.Drawing.Point(6, 201);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(159, 108);
             this.groupBox5.TabIndex = 11;
@@ -379,12 +383,22 @@
             this.groupBox1.Controls.Add(this.btnSelectBackgroundColor);
             this.groupBox1.Controls.Add(this.btnSelectGridColor);
             this.groupBox1.Controls.Add(this.btnSelectElementColor);
-            this.groupBox1.Location = new System.Drawing.Point(6, 293);
+            this.groupBox1.Location = new System.Drawing.Point(12, 331);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(159, 107);
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Colors";
+            // 
+            // btnSelectBackgroundColor
+            // 
+            this.btnSelectBackgroundColor.Location = new System.Drawing.Point(6, 77);
+            this.btnSelectBackgroundColor.Name = "btnSelectBackgroundColor";
+            this.btnSelectBackgroundColor.Size = new System.Drawing.Size(147, 23);
+            this.btnSelectBackgroundColor.TabIndex = 14;
+            this.btnSelectBackgroundColor.Text = "Background";
+            this.btnSelectBackgroundColor.UseVisualStyleBackColor = true;
+            this.btnSelectBackgroundColor.Click += new System.EventHandler(this.btnSelectBackgroundColor_Click);
             // 
             // btnSelectGridColor
             // 
@@ -396,15 +410,16 @@
             this.btnSelectGridColor.UseVisualStyleBackColor = true;
             this.btnSelectGridColor.Click += new System.EventHandler(this.btnSelectGridColor_Click);
             // 
-            // btnSelectBackgroundColor
+            // cbDrawGrid
             // 
-            this.btnSelectBackgroundColor.Location = new System.Drawing.Point(6, 77);
-            this.btnSelectBackgroundColor.Name = "btnSelectBackgroundColor";
-            this.btnSelectBackgroundColor.Size = new System.Drawing.Size(147, 23);
-            this.btnSelectBackgroundColor.TabIndex = 14;
-            this.btnSelectBackgroundColor.Text = "Background";
-            this.btnSelectBackgroundColor.UseVisualStyleBackColor = true;
-            this.btnSelectBackgroundColor.Click += new System.EventHandler(this.btnSelectBackgroundColor_Click);
+            this.cbDrawGrid.AutoSize = true;
+            this.cbDrawGrid.Location = new System.Drawing.Point(9, 163);
+            this.cbDrawGrid.Name = "cbDrawGrid";
+            this.cbDrawGrid.Size = new System.Drawing.Size(73, 17);
+            this.cbDrawGrid.TabIndex = 16;
+            this.cbDrawGrid.Text = "Draw Grid";
+            this.cbDrawGrid.UseVisualStyleBackColor = true;
+            this.cbDrawGrid.CheckedChanged += new System.EventHandler(this.cbDrawGrid_CheckedChanged);
             // 
             // FrmMain
             // 
@@ -470,6 +485,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnSelectBackgroundColor;
         private System.Windows.Forms.Button btnSelectGridColor;
+        private System.Windows.Forms.CheckBox cbDrawGrid;
     }
 }
 
