@@ -1,4 +1,6 @@
-﻿namespace ConwayGameofLife.com.andaforce.arazect.life
+﻿using System;
+
+namespace ConwayGameofLife.com.andaforce.arazect.life
 {
     public class World
     {
@@ -51,6 +53,17 @@
                         SetCellDead(x, y);
                     }
                 }
+            }
+        }
+
+        public void RandomFilling(int count)
+        {
+            _worldState = new int[WorldHeight, WorldWidth];
+
+            var rnd = new Random();
+            for (int i = 0; i < count; i++)
+            {
+                SetCellAlive(rnd.Next(0, WorldWidth), rnd.Next(0, WorldHeight));
             }
         }
 
