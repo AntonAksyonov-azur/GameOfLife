@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.pBox = new System.Windows.Forms.PictureBox();
             this.nudPixelSize = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
@@ -41,14 +42,15 @@
             this.nudWorldWidth = new System.Windows.Forms.NumericUpDown();
             this.btnGenerateClean = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsslMouseCoordinates = new System.Windows.Forms.ToolStripStatusLabel();
             this.lGeneration = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.btnEnableDisableTimer = new System.Windows.Forms.Button();
-            this.nudTimerInterval = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.nudTimerInterval = new System.Windows.Forms.NumericUpDown();
+            this.btnEnableDisableTimer = new System.Windows.Forms.Button();
+            this.timerWorldGeneration = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPixelSize)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -234,6 +236,18 @@
             this.statusStrip1.TabIndex = 9;
             this.statusStrip1.Text = "statusStrip1";
             // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(196, 17);
+            this.toolStripStatusLabel1.Text = "Note, that size of view area is 640x480";
+            // 
+            // toolStripStatusLabel2
+            // 
+            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(11, 17);
+            this.toolStripStatusLabel2.Text = "|";
+            // 
             // tsslMouseCoordinates
             // 
             this.tsslMouseCoordinates.Name = "tsslMouseCoordinates";
@@ -262,16 +276,15 @@
             this.groupBox5.TabIndex = 11;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Generation control";
-            this.groupBox5.Enter += new System.EventHandler(this.groupBox5_Enter);
             // 
-            // btnEnableDisableTimer
+            // label4
             // 
-            this.btnEnableDisableTimer.Location = new System.Drawing.Point(68, 29);
-            this.btnEnableDisableTimer.Name = "btnEnableDisableTimer";
-            this.btnEnableDisableTimer.Size = new System.Drawing.Size(100, 23);
-            this.btnEnableDisableTimer.TabIndex = 11;
-            this.btnEnableDisableTimer.Text = "Enable Timer";
-            this.btnEnableDisableTimer.UseVisualStyleBackColor = true;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 16);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(45, 13);
+            this.label4.TabIndex = 13;
+            this.label4.Text = "Interval:";
             // 
             // nudTimerInterval
             // 
@@ -295,26 +308,19 @@
             0,
             0});
             // 
-            // label4
+            // btnEnableDisableTimer
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 16);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(45, 13);
-            this.label4.TabIndex = 13;
-            this.label4.Text = "Interval:";
+            this.btnEnableDisableTimer.Location = new System.Drawing.Point(68, 29);
+            this.btnEnableDisableTimer.Name = "btnEnableDisableTimer";
+            this.btnEnableDisableTimer.Size = new System.Drawing.Size(100, 23);
+            this.btnEnableDisableTimer.TabIndex = 11;
+            this.btnEnableDisableTimer.Text = "Enable Timer";
+            this.btnEnableDisableTimer.UseVisualStyleBackColor = true;
+            this.btnEnableDisableTimer.Click += new System.EventHandler(this.btnEnableDisableTimer_Click);
             // 
-            // toolStripStatusLabel1
+            // timerWorldGeneration
             // 
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(196, 17);
-            this.toolStripStatusLabel1.Text = "Note, that size of view area is 640x480";
-            // 
-            // toolStripStatusLabel2
-            // 
-            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(11, 17);
-            this.toolStripStatusLabel2.Text = "|";
+            this.timerWorldGeneration.Tick += new System.EventHandler(this.timer_Tick);
             // 
             // FrmMain
             // 
@@ -368,6 +374,7 @@
         private System.Windows.Forms.NumericUpDown nudTimerInterval;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
+        private System.Windows.Forms.Timer timerWorldGeneration;
     }
 }
 
