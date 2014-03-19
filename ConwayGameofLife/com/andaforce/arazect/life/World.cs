@@ -4,56 +4,100 @@ namespace ConwayGameofLife.com.andaforce.arazect.life
 {
     public class World
     {
-        private int[,] _worldState;
+        private int[,] _currentWorldState;
+        private int[,] _futureWorldState;
         public int WorldWidth { get; private set; }
         public int WorldHeight { get; private set; }
 
         public World(int worldWidth, int worldHeight)
         {
-            _worldState = new int[worldHeight, worldWidth];
+            _currentWorldState = new int[worldHeight, worldWidth];
+            _futureWorldState = new int[worldHeight, worldWidth];
+
             WorldWidth = worldWidth;
             WorldHeight = worldHeight;
         }
 
+        #region Present
+
         public void SetCellAlive(int x, int y)
         {
-            _worldState[y, x] = 1;
+            _currentWorldState[y, x] = 1;
         }
 
         public void SetCellDead(int x, int y)
         {
-            _worldState[y, x] = 0;
+            _currentWorldState[y, x] = 0;
         }
 
         public bool IsCellDead(int x, int y)
         {
-            return _worldState[y, x] == 0;
+            return _currentWorldState[y, x] == 0;
         }
+
+        #endregion
+
+        #region Future
+
+        private void ClearFuture()
+        {
+            _futureWorldState = new int[WorldWidth, WorldWidth];
+        }
+
+        private void SetFutureCellAlive(int x, int y)
+        {
+            _futureWorldState[y, x] = 1;
+        }
+
+        private void SetFutureCellDead(int x, int y)
+        {
+            _futureWorldState[y, x] = 0;
+        }
+
+        private void ApplyFuture()
+        {
+            Clear();
+
+            for (int x = 0; x < WorldWidth; x++)
+            {
+                for (int y = 0; y < WorldHeight; y++)
+                {
+                    _currentWorldState[y, x] = _futureWorldState[y, x];
+                }
+            }
+        }
+
+        #endregion
 
         public void PerformNextStep()
         {
+            ClearFuture();
+
             bool isCellDead;
-            int neighbours;
+            int neighboursCount;
+
             for (int x = 0; x < WorldWidth; x++)
             {
                 for (int y = 0; y < WorldHeight; y++)
                 {
                     isCellDead = IsCellDead(x, y);
-                    neighbours = GetNeighboursCount(x, y);
-                    if (isCellDead && neighbours == 3)
+                    neighboursCount = GetNeighboursCount(x, y);
+                    if (isCellDead && neighboursCount == 3)
                     {
-                        SetCellAlive(x, y);
+                        SetFutureCellAlive(x, y);
                     }
-                    else if (!isCellDead && (neighbours == 2 || neighbours == 3))
+                    else if (!isCellDead && (neighboursCount == 2 || neighboursCount == 3))
                     {
-                        // Cell stays alive
+                        SetFutureCellAlive(x, y);
                     }
-                    else if (!isCellDead && (neighbours < 2 || neighbours > 3))
+                    else if (!isCellDead && (neighboursCount < 2 || neighboursCount > 3))
                     {
-                        SetCellDead(x, y);
+                        SetFutureCellDead(x, y);
                     }
                 }
             }
+
+            ApplyFuture();
         }
 
         public void RandomFilling(int count, int newWidth = 0, int newHeight = 0)
@@ -79,7 +123,7 @@ namespace ConwayGameofLife.com.andaforce.arazect.life
                 WorldHeight = newHeight;
             }
 
-            _worldState = new int[WorldHeight, WorldWidth];
+            _currentWorldState = new int[WorldHeight, WorldWidth];
         }
 
         private int GetNeighboursCount(int checkedX, int checkedY)
