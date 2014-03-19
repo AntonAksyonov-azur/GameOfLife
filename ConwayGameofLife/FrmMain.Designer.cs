@@ -53,6 +53,7 @@
             this.pBox.Size = new System.Drawing.Size(640, 480);
             this.pBox.TabIndex = 0;
             this.pBox.TabStop = false;
+            this.pBox.Paint += new System.Windows.Forms.PaintEventHandler(this.pBox_Paint);
             // 
             // groupBox1
             // 
@@ -146,6 +147,7 @@
             this.btnNextStep.TabIndex = 6;
             this.btnNextStep.Text = "Next Step";
             this.btnNextStep.UseVisualStyleBackColor = true;
+            this.btnNextStep.Click += new System.EventHandler(this.btnNextStep_Click);
             // 
             // btnGenerateNew
             // 
@@ -155,6 +157,7 @@
             this.btnGenerateNew.TabIndex = 7;
             this.btnGenerateNew.Text = "Generate New";
             this.btnGenerateNew.UseVisualStyleBackColor = true;
+            this.btnGenerateNew.Click += new System.EventHandler(this.btnGenerateNew_Click);
             // 
             // FrmMain
             // 
