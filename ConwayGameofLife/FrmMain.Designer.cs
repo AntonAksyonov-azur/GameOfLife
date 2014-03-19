@@ -30,13 +30,14 @@
         {
             this.pBox = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.rbDraw = new System.Windows.Forms.RadioButton();
             this.rbClear = new System.Windows.Forms.RadioButton();
+            this.rbDraw = new System.Windows.Forms.RadioButton();
             this.nudPixelSize = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btnNextStep = new System.Windows.Forms.Button();
+            this.btnGenerateNew = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pBox)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudPixelSize)).BeginInit();
@@ -64,6 +65,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Drawing";
             // 
+            // rbClear
+            // 
+            this.rbClear.AutoSize = true;
+            this.rbClear.Location = new System.Drawing.Point(6, 42);
+            this.rbClear.Name = "rbClear";
+            this.rbClear.Size = new System.Drawing.Size(49, 17);
+            this.rbClear.TabIndex = 1;
+            this.rbClear.Text = "Clear";
+            this.rbClear.UseVisualStyleBackColor = true;
+            // 
             // rbDraw
             // 
             this.rbDraw.AutoSize = true;
@@ -75,16 +86,6 @@
             this.rbDraw.TabStop = true;
             this.rbDraw.Text = "Draw";
             this.rbDraw.UseVisualStyleBackColor = true;
-            // 
-            // rbClear
-            // 
-            this.rbClear.AutoSize = true;
-            this.rbClear.Location = new System.Drawing.Point(6, 42);
-            this.rbClear.Name = "rbClear";
-            this.rbClear.Size = new System.Drawing.Size(49, 17);
-            this.rbClear.TabIndex = 1;
-            this.rbClear.Text = "Clear";
-            this.rbClear.UseVisualStyleBackColor = true;
             // 
             // nudPixelSize
             // 
@@ -139,23 +140,33 @@
             // 
             // btnNextStep
             // 
-            this.btnNextStep.Location = new System.Drawing.Point(12, 162);
+            this.btnNextStep.Location = new System.Drawing.Point(12, 191);
             this.btnNextStep.Name = "btnNextStep";
             this.btnNextStep.Size = new System.Drawing.Size(103, 23);
             this.btnNextStep.TabIndex = 6;
             this.btnNextStep.Text = "Next Step";
             this.btnNextStep.UseVisualStyleBackColor = true;
             // 
-            // Form1
+            // btnGenerateNew
+            // 
+            this.btnGenerateNew.Location = new System.Drawing.Point(12, 162);
+            this.btnGenerateNew.Name = "btnGenerateNew";
+            this.btnGenerateNew.Size = new System.Drawing.Size(103, 23);
+            this.btnGenerateNew.TabIndex = 7;
+            this.btnGenerateNew.Text = "Generate New";
+            this.btnGenerateNew.UseVisualStyleBackColor = true;
+            // 
+            // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 520);
+            this.Controls.Add(this.btnGenerateNew);
             this.Controls.Add(this.btnNextStep);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Name = "Form1";
+            this.Name = "FrmMain";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pBox)).EndInit();
@@ -180,6 +191,7 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button btnNextStep;
+        private System.Windows.Forms.Button btnGenerateNew;
     }
 }
 
